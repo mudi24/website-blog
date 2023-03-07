@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>jquery设计思想 | 一起学前端</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.c743a759.css" as="style"><link rel="preload" href="/assets/js/app.3aeb1e98.js" as="script"><link rel="preload" href="/assets/js/2.83af3cc0.js" as="script"><link rel="preload" href="/assets/js/97.b85fc8ad.js" as="script"><link rel="prefetch" href="/assets/js/10.3b2706bb.js"><link rel="prefetch" href="/assets/js/100.c8f756f0.js"><link rel="prefetch" href="/assets/js/101.04b72338.js"><link rel="prefetch" href="/assets/js/102.8a80ca0d.js"><link rel="prefetch" href="/assets/js/103.39222573.js"><link rel="prefetch" href="/assets/js/104.ef400740.js"><link rel="prefetch" href="/assets/js/105.cec6e582.js"><link rel="prefetch" href="/assets/js/106.b3f2d115.js"><link rel="prefetch" href="/assets/js/107.6fab1075.js"><link rel="prefetch" href="/assets/js/108.34b05216.js"><link rel="prefetch" href="/assets/js/109.097f1fcb.js"><link rel="prefetch" href="/assets/js/11.d0e2210e.js"><link rel="prefetch" href="/assets/js/110.98b0cd18.js"><link rel="prefetch" href="/assets/js/111.ac942fbf.js"><link rel="prefetch" href="/assets/js/112.37924f75.js"><link rel="prefetch" href="/assets/js/113.e0f894d4.js"><link rel="prefetch" href="/assets/js/114.d2967b20.js"><link rel="prefetch" href="/assets/js/115.42ac08cd.js"><link rel="prefetch" href="/assets/js/116.d91753ef.js"><link rel="prefetch" href="/assets/js/117.f4538cd6.js"><link rel="prefetch" href="/assets/js/118.2d8297db.js"><link rel="prefetch" href="/assets/js/119.e655a176.js"><link rel="prefetch" href="/assets/js/12.f8c43eb2.js"><link rel="prefetch" href="/assets/js/120.9de91b9b.js"><link rel="prefetch" href="/assets/js/121.c87bffa0.js"><link rel="prefetch" href="/assets/js/122.3da90492.js"><link rel="prefetch" href="/assets/js/123.b0f831ca.js"><link rel="prefetch" href="/assets/js/124.55deaf22.js"><link rel="prefetch" href="/assets/js/125.ce7b3e7e.js"><link rel="prefetch" href="/assets/js/126.f1046b02.js"><link rel="prefetch" href="/assets/js/127.4f2064bd.js"><link rel="prefetch" href="/assets/js/128.954f6993.js"><link rel="prefetch" href="/assets/js/129.27175358.js"><link rel="prefetch" href="/assets/js/13.b0d38a0a.js"><link rel="prefetch" href="/assets/js/130.eeffe648.js"><link rel="prefetch" href="/assets/js/131.6fb52502.js"><link rel="prefetch" href="/assets/js/132.d69871d0.js"><link rel="prefetch" href="/assets/js/133.0d1c7395.js"><link rel="prefetch" href="/assets/js/134.20aa1a8e.js"><link rel="prefetch" href="/assets/js/135.4dceb969.js"><link rel="prefetch" href="/assets/js/136.2a931837.js"><link rel="prefetch" href="/assets/js/137.4a3ea2bc.js"><link rel="prefetch" href="/assets/js/138.f3835b29.js"><link rel="prefetch" href="/assets/js/139.b9f3bbb3.js"><link rel="prefetch" href="/assets/js/14.fe64de54.js"><link rel="prefetch" href="/assets/js/140.811b72d5.js"><link rel="prefetch" href="/assets/js/141.80a96e0b.js"><link rel="prefetch" href="/assets/js/142.9fe53172.js"><link rel="prefetch" href="/assets/js/143.f1f9891c.js"><link rel="prefetch" href="/assets/js/144.09369c3e.js"><link rel="prefetch" href="/assets/js/15.7784b150.js"><link rel="prefetch" href="/assets/js/16.dca47ed7.js"><link rel="prefetch" href="/assets/js/17.053c0c85.js"><link rel="prefetch" href="/assets/js/18.7d76c9cc.js"><link rel="prefetch" href="/assets/js/19.504036bb.js"><link rel="prefetch" href="/assets/js/20.cdf651a9.js"><link rel="prefetch" href="/assets/js/21.750cb245.js"><link rel="prefetch" href="/assets/js/22.85646704.js"><link rel="prefetch" href="/assets/js/23.9c2d9bfa.js"><link rel="prefetch" href="/assets/js/24.b9b5e278.js"><link rel="prefetch" href="/assets/js/25.787db747.js"><link rel="prefetch" href="/assets/js/26.1b65e7e2.js"><link rel="prefetch" href="/assets/js/27.5b29b74d.js"><link rel="prefetch" href="/assets/js/28.c41c72df.js"><link rel="prefetch" href="/assets/js/29.f452a5af.js"><link rel="prefetch" href="/assets/js/3.b7576c58.js"><link rel="prefetch" href="/assets/js/30.4d7c359f.js"><link rel="prefetch" href="/assets/js/31.6cf93bd9.js"><link rel="prefetch" href="/assets/js/32.b3e0e356.js"><link rel="prefetch" href="/assets/js/33.731b7cbd.js"><link rel="prefetch" href="/assets/js/34.eb522b7e.js"><link rel="prefetch" href="/assets/js/35.7e9a32ef.js"><link rel="prefetch" href="/assets/js/36.7d0ff7fd.js"><link rel="prefetch" href="/assets/js/37.f6bb08ad.js"><link rel="prefetch" href="/assets/js/38.cdb5bb8c.js"><link rel="prefetch" href="/assets/js/39.f16d59e2.js"><link rel="prefetch" href="/assets/js/4.30bc6949.js"><link rel="prefetch" href="/assets/js/40.c3b52b21.js"><link rel="prefetch" href="/assets/js/41.3cf2209b.js"><link rel="prefetch" href="/assets/js/42.acafff1c.js"><link rel="prefetch" href="/assets/js/43.33fc0f17.js"><link rel="prefetch" href="/assets/js/44.4a24ebd3.js"><link rel="prefetch" href="/assets/js/45.47b9a80c.js"><link rel="prefetch" href="/assets/js/46.a20cee2e.js"><link rel="prefetch" href="/assets/js/47.ef3e96e9.js"><link rel="prefetch" href="/assets/js/48.2923f43d.js"><link rel="prefetch" href="/assets/js/49.30e0fe44.js"><link rel="prefetch" href="/assets/js/5.7c7749a8.js"><link rel="prefetch" href="/assets/js/50.2f619fa8.js"><link rel="prefetch" href="/assets/js/51.85cd9572.js"><link rel="prefetch" href="/assets/js/52.37869db5.js"><link rel="prefetch" href="/assets/js/53.c0127118.js"><link rel="prefetch" href="/assets/js/54.75416c42.js"><link rel="prefetch" href="/assets/js/55.3a777cbe.js"><link rel="prefetch" href="/assets/js/56.f6dab9be.js"><link rel="prefetch" href="/assets/js/57.63169b90.js"><link rel="prefetch" href="/assets/js/58.96fbacda.js"><link rel="prefetch" href="/assets/js/59.10f7f026.js"><link rel="prefetch" href="/assets/js/6.10d1cb7c.js"><link rel="prefetch" href="/assets/js/60.293b9f06.js"><link rel="prefetch" href="/assets/js/61.dc639372.js"><link rel="prefetch" href="/assets/js/62.1d8a67bb.js"><link rel="prefetch" href="/assets/js/63.8710c4e1.js"><link rel="prefetch" href="/assets/js/64.2730d625.js"><link rel="prefetch" href="/assets/js/65.6d547ea3.js"><link rel="prefetch" href="/assets/js/66.3f14281d.js"><link rel="prefetch" href="/assets/js/67.a224fdad.js"><link rel="prefetch" href="/assets/js/68.08d33173.js"><link rel="prefetch" href="/assets/js/69.c372c0a4.js"><link rel="prefetch" href="/assets/js/7.7aaacf14.js"><link rel="prefetch" href="/assets/js/70.ad6c1a77.js"><link rel="prefetch" href="/assets/js/71.7d6cd811.js"><link rel="prefetch" href="/assets/js/72.7f03d2ea.js"><link rel="prefetch" href="/assets/js/73.b5813982.js"><link rel="prefetch" href="/assets/js/74.81032885.js"><link rel="prefetch" href="/assets/js/75.9e69c8bb.js"><link rel="prefetch" href="/assets/js/76.404bebc2.js"><link rel="prefetch" href="/assets/js/77.88a71943.js"><link rel="prefetch" href="/assets/js/78.35991ca7.js"><link rel="prefetch" href="/assets/js/79.42544d6c.js"><link rel="prefetch" href="/assets/js/8.369c074c.js"><link rel="prefetch" href="/assets/js/80.3ea8d15e.js"><link rel="prefetch" href="/assets/js/81.ffa2550d.js"><link rel="prefetch" href="/assets/js/82.92c95751.js"><link rel="prefetch" href="/assets/js/83.db1129ed.js"><link rel="prefetch" href="/assets/js/84.0d4ed3df.js"><link rel="prefetch" href="/assets/js/85.a82eed90.js"><link rel="prefetch" href="/assets/js/86.dc7872e9.js"><link rel="prefetch" href="/assets/js/87.eadf1786.js"><link rel="prefetch" href="/assets/js/88.4a476129.js"><link rel="prefetch" href="/assets/js/89.719bfd17.js"><link rel="prefetch" href="/assets/js/9.1bc77ba7.js"><link rel="prefetch" href="/assets/js/90.4fd24039.js"><link rel="prefetch" href="/assets/js/91.1002e8e1.js"><link rel="prefetch" href="/assets/js/92.2c249787.js"><link rel="prefetch" href="/assets/js/93.8d310eb4.js"><link rel="prefetch" href="/assets/js/94.1e299b90.js"><link rel="prefetch" href="/assets/js/95.61e63fb3.js"><link rel="prefetch" href="/assets/js/96.f1c359c1.js"><link rel="prefetch" href="/assets/js/98.4223ffd1.js"><link rel="prefetch" href="/assets/js/99.63a5a161.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c743a759.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">一起学前端</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/interview/" class="nav-link">
+  面试题
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/react/" class="nav-link">
+  react
+</a></div><div class="nav-item"><a href="/node.js/" class="nav-link">
+  node.js
+</a></div><div class="nav-item"><a href="https://juejin.cn/user/2137106337773645/posts" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金主页
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/interview/" class="nav-link">
+  面试题
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/react/" class="nav-link">
+  react
+</a></div><div class="nav-item"><a href="/node.js/" class="nav-link">
+  node.js
+</a></div><div class="nav-item"><a href="https://juejin.cn/user/2137106337773645/posts" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金主页
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>VS Code</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>浏览器</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端性能优化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>阅读源码</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>git</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTML</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>jQuery</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/tech/jQuery/jquery的设计思想.html" class="active sidebar-link">jquery设计思想</a></li><li><a href="/tech/jQuery/jquery设计模式.html" class="sidebar-link">jquery设计模式</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Webpack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Sass</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>TS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Bootstrap</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>DOM</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>BOM</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>http</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>正则表达式</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Mockjs</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>数据结构和算法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>算法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>设计模式</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>开源</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>常见英文词汇</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><ol><li><p>jQuery 获取元素</p> <ul><li><p>将一个表达式，放进构造函数 jQuery()（简写为$），然后得到被选中的元素。</p></li> <li><p>表达式可以是 CSS 选择器：</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code>   $(document) // 选择整个文档
+
+   $('#myId') // 选择ID为myId的网页元素
+
+   $('div.myClass) // 选择class为myClass的div元素
+
+   $('input[name=first]') // 选择name属性等于first的input元素
+</code></pre></div><ul><li>也可以是 jQuery 特有的表达式</li></ul> <div class="language- extra-class"><pre class="language-text"><code>   $('a:first') //选择网页中第一个a元素
+
+   $('tr:odd') //选择表格的奇数行
+
+   $('#myForm :input') // 选择表单中的input元素
+
+   $('div:visible') //选择可见的div元素
+
+   $('div:gt(2)') // 选择所有的div元素，除了前三个
+
+   $('div:animated') // 选择当前处于动画状态的div元素
+</code></pre></div><ul><li>jQuery 还支持对选中的元素进行过滤，对找到的元素再次进行筛选</li></ul> <div class="language- extra-class"><pre class="language-text"><code>　$('div').has('p'); // 选择包含p元素的div元素
+
+　$('div').not('.myClass'); //选择class不等于myClass的div元素
+
+　$('div').filter('.myClass'); //选择class等于myClass的div元素
+
+　$('div').first(); //选择第1个div元素
+
+　$('div').eq(5); //选择第6个div元素
+</code></pre></div><ul><li>也可以获取附近的相关元素(父子元素，兄弟元素)</li></ul> <div class="language- extra-class"><pre class="language-text"><code>　　$('div').next('p'); //选择div元素后面的第一个p元素
+
+　　$('div').parent(); //选择div元素的父元素
+
+　　$('div').closest('form'); //选择离div最近的那个form父元素
+
+　　$('div').children(); //选择div的所有子元素
+
+　　$('div').siblings(); //选择div的同级元素
+</code></pre></div></li> <li><p>jQuery 的链式操作</p> <ul><li>每次调用 jQuery 函数或者 对 jQuery 进行操作时，返回的都是一个 jQuery 对象。这样就可以直接在后面对返回对象进行操作，而不用再次去获取。</li> <li>jQuery 还提供了.end()方法，使我们可以拿到上一步的 jQuery 对象。</li></ul></li> <li><p>jQuery 中的取值和赋值</p> <ul><li>jQuery 使用同一个函数来完成取值（getter）和赋值（setter），由函数的参数决定是取值还是赋值。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>　$('h1').html(); //html()没有参数，表示取出h1的值
+  $('h1').html('Hello'); //html()有参数Hello，表示对h1进行赋值
+</code></pre></div><ul><li>常见的赋值和取值函数如下</li></ul> <div class="language- extra-class"><pre class="language-text"><code> .html() 取出或设置html内容
+
+ .text() 取出或设置 text 内容
+
+ .attr() 取出或设置某个属性的值
+
+ .width() 取出或设置某个元素的宽度
+
+ .height() 取出或设置某个元素的高度
+
+ .val() 取出某个表单元素的值
+</code></pre></div><ul><li>如果结果包含多个元素，那么赋值的时候，将对其中所有的元素赋值。而取值的时候，则是只取出第一个元素的值（.text()例外，它取出所有元素的 text 内容）。</li></ul></li> <li><p>jQuery 操作元素（元素的增删改查）</p> <ul><li>创建元素，把新的元素作为参数传入 jQuery 的构造函数中即可</li></ul> <div class="language- extra-class"><pre class="language-text"><code> $('&lt;p&gt;Hello&lt;/p&gt;');
+
+ $('&lt;li class=&quot;new&quot;&gt;new list item&lt;/li&gt;');
+
+ $('ul').append('&lt;li&gt;list item&lt;/li&gt;');
+</code></pre></div><ul><li><p>复制元素使用.clone()。</p></li> <li><p>删除元素</p> <ul><li>.remove() 删除元素本身，所有绑定的事件和与元素相关联的 jQuery 数据都将被删除。</li> <li>.detach() 删除元素本身，但保留所有与删除的元素关联的 jQuery 数据。可以将删除的元素重新插入文档。</li></ul></li></ul> <ul><li>清空元素内容（但是不删除该元素）使用.empty()。</li></ul></li> <li><p>jQuery 移动元素</p> <ul><li>移动元素有通常有两种方案来实现
+<ul><li>移动自身</li> <li>移动周围其他元素</li></ul></li> <li>举个栗子：把一个 div 元素移动到 p 元素后面。
+<ul><li>第一种方法是使用.insertAfter()，把 div 元素移动 p 元素后面：<div class="language- extra-class"><pre class="language-text"><code>$('div').insertAfter($('p'));
+</code></pre></div></li> <li>第二种方法是使用.after()，把 p 元素加到 div 元素前面：<div class="language- extra-class"><pre class="language-text"><code>$('p').after($('div'));`
+</code></pre></div></li></ul></li></ul> <ul><li><p>看起来实现的效果是相同的，但是返回值不同，可以根据实际情况来决定使用对应的方法</p></li> <li><p>四种操作方法：</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code> .insertAfter()和.after()：在当前元素的外部，从后面插入元素
+
+ .insertBefore()和.before()：在当前元素的外部，从前面插入元素
+
+ .appendTo()和.append()：在当前元素的内部，从后面插入元素
+
+ .prependTo()和.prepend()：在当前元素的内部，从前面插入元素
+</code></pre></div></li> <li><p>jQuery 方法</p> <ul><li><p>jQuery 还提供了一些与元素无关的方法。不必选中元素，就可以直接使用这些方法。（定义在 jQuery 构造函数上的方法）</p> <div class="language- extra-class"><pre class="language-text"><code>  $.trim() 去除字符串两端的空格。
+
+  $.each() 遍历一个数组或对象。
+
+  $.inArray() 返回一个值在数组中的索引位置。如果该值不在数组中，则返回-1。
+
+  $.makeArray() 将对象转化为数组。
+
+  $.type() 判断对象的类别（函数对象、日期对象、数组对象、正则对象等等）。
+
+  $.isArray() 判断某个参数是否为数组。
+
+  $.isEmptyObject() 判断某个对象是否为空（不含有任何属性）。
+
+  $.isFunction() 判断某个参数是否为函数。
+
+  $.isPlainObject() 判断某个参数是否为用&quot;{}&quot;或&quot;new Object&quot;建立的对象。
+</code></pre></div></li></ul></li> <li><p>jQuery 事件操作</p> <ul><li><p>主要事件：</p> <div class="language- extra-class"><pre class="language-text"><code>  .blur() 表单元素失去焦点。
+
+  .click() 鼠标单击
+
+  .focus() 表单元素获得焦点
+
+  .keydown() 按下键盘（长时间按键，只返回一个事件）
+
+  .keypress() 按下键盘（长时间按键，将返回多个事件）
+
+  .submit() 用户递交表单
+</code></pre></div></li> <li><p>使用.bind()可以更灵活地控制事件，比如为多个事件绑定同一个函数：</p> <div class="language- extra-class"><pre class="language-text"><code>$('input').bind(
+　　'click change', //同时绑定click和change事件
+　　function() {
+　　　　alert('Hello');
+　　}
+);
+</code></pre></div></li> <li><p>有时，你只想让事件运行一次，这时可以使用.one()方法。</p> <div class="language- extra-class"><pre class="language-text"><code>$(&quot;p&quot;).one(&quot;click&quot;, function() {
+      alert(&quot;Hello&quot;); //只运行一次，以后的点击不会运行
+  });
+</code></pre></div></li></ul> <ul><li>.unbind()用来解除事件绑定。<div class="language- extra-class"><pre class="language-text"><code>　$('p').unbind('click');
+</code></pre></div></li></ul></li> <li><p>jQuery 特殊效果</p> <ul><li>常用效果</li></ul> <div class="language- extra-class"><pre class="language-text"><code>.fadeIn() 淡入
+
+.fadeOut() 淡出
+
+.fadeTo() 调整透明度
+
+.hide() 隐藏元素
+
+.show() 显示元素
+
+.slideDown() 向下展开
+
+.slideUp() 向上卷起
+
+.slideToggle() 依次展开或卷起某个元素
+
+.toggle() 依次展示或隐藏某个元素
+</code></pre></div><ul><li>还可以用.animate()自定义复杂的特殊效果<div class="language- extra-class"><pre class="language-text"><code>　　$('div').animate(
+　　{
+　　　　left : &quot;+=50&quot;, //不断右移
+　　　　opacity : 0.25 //指定透明度
+　　},
+　　300, // 持续时间
+　　function() { alert('done!'); } //回调函数
+  );
+</code></pre></div></li></ul></li></ol></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/tech/CSS/CSS 性能优化.html" class="prev">
+        CSS 性能优化
+      </a></span> <span class="next"><a href="/tech/jQuery/jquery设计模式.html">
+        jquery设计模式
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.3aeb1e98.js" defer></script><script src="/assets/js/2.83af3cc0.js" defer></script><script src="/assets/js/97.b85fc8ad.js" defer></script>
+  </body>
+</html>

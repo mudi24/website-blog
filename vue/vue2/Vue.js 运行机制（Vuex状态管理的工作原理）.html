@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vue.js 运行机制（Vuex状态管理的工作原理） | 一起学前端</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.c743a759.css" as="style"><link rel="preload" href="/assets/js/app.3aeb1e98.js" as="script"><link rel="preload" href="/assets/js/2.83af3cc0.js" as="script"><link rel="preload" href="/assets/js/128.954f6993.js" as="script"><link rel="prefetch" href="/assets/js/10.3b2706bb.js"><link rel="prefetch" href="/assets/js/100.c8f756f0.js"><link rel="prefetch" href="/assets/js/101.04b72338.js"><link rel="prefetch" href="/assets/js/102.8a80ca0d.js"><link rel="prefetch" href="/assets/js/103.39222573.js"><link rel="prefetch" href="/assets/js/104.ef400740.js"><link rel="prefetch" href="/assets/js/105.cec6e582.js"><link rel="prefetch" href="/assets/js/106.b3f2d115.js"><link rel="prefetch" href="/assets/js/107.6fab1075.js"><link rel="prefetch" href="/assets/js/108.34b05216.js"><link rel="prefetch" href="/assets/js/109.097f1fcb.js"><link rel="prefetch" href="/assets/js/11.d0e2210e.js"><link rel="prefetch" href="/assets/js/110.98b0cd18.js"><link rel="prefetch" href="/assets/js/111.ac942fbf.js"><link rel="prefetch" href="/assets/js/112.37924f75.js"><link rel="prefetch" href="/assets/js/113.e0f894d4.js"><link rel="prefetch" href="/assets/js/114.d2967b20.js"><link rel="prefetch" href="/assets/js/115.42ac08cd.js"><link rel="prefetch" href="/assets/js/116.d91753ef.js"><link rel="prefetch" href="/assets/js/117.f4538cd6.js"><link rel="prefetch" href="/assets/js/118.2d8297db.js"><link rel="prefetch" href="/assets/js/119.e655a176.js"><link rel="prefetch" href="/assets/js/12.f8c43eb2.js"><link rel="prefetch" href="/assets/js/120.9de91b9b.js"><link rel="prefetch" href="/assets/js/121.c87bffa0.js"><link rel="prefetch" href="/assets/js/122.3da90492.js"><link rel="prefetch" href="/assets/js/123.b0f831ca.js"><link rel="prefetch" href="/assets/js/124.55deaf22.js"><link rel="prefetch" href="/assets/js/125.ce7b3e7e.js"><link rel="prefetch" href="/assets/js/126.f1046b02.js"><link rel="prefetch" href="/assets/js/127.4f2064bd.js"><link rel="prefetch" href="/assets/js/129.27175358.js"><link rel="prefetch" href="/assets/js/13.b0d38a0a.js"><link rel="prefetch" href="/assets/js/130.eeffe648.js"><link rel="prefetch" href="/assets/js/131.6fb52502.js"><link rel="prefetch" href="/assets/js/132.d69871d0.js"><link rel="prefetch" href="/assets/js/133.0d1c7395.js"><link rel="prefetch" href="/assets/js/134.20aa1a8e.js"><link rel="prefetch" href="/assets/js/135.4dceb969.js"><link rel="prefetch" href="/assets/js/136.2a931837.js"><link rel="prefetch" href="/assets/js/137.4a3ea2bc.js"><link rel="prefetch" href="/assets/js/138.f3835b29.js"><link rel="prefetch" href="/assets/js/139.b9f3bbb3.js"><link rel="prefetch" href="/assets/js/14.fe64de54.js"><link rel="prefetch" href="/assets/js/140.811b72d5.js"><link rel="prefetch" href="/assets/js/141.80a96e0b.js"><link rel="prefetch" href="/assets/js/142.9fe53172.js"><link rel="prefetch" href="/assets/js/143.f1f9891c.js"><link rel="prefetch" href="/assets/js/144.09369c3e.js"><link rel="prefetch" href="/assets/js/15.7784b150.js"><link rel="prefetch" href="/assets/js/16.dca47ed7.js"><link rel="prefetch" href="/assets/js/17.053c0c85.js"><link rel="prefetch" href="/assets/js/18.7d76c9cc.js"><link rel="prefetch" href="/assets/js/19.504036bb.js"><link rel="prefetch" href="/assets/js/20.cdf651a9.js"><link rel="prefetch" href="/assets/js/21.750cb245.js"><link rel="prefetch" href="/assets/js/22.85646704.js"><link rel="prefetch" href="/assets/js/23.9c2d9bfa.js"><link rel="prefetch" href="/assets/js/24.b9b5e278.js"><link rel="prefetch" href="/assets/js/25.787db747.js"><link rel="prefetch" href="/assets/js/26.1b65e7e2.js"><link rel="prefetch" href="/assets/js/27.5b29b74d.js"><link rel="prefetch" href="/assets/js/28.c41c72df.js"><link rel="prefetch" href="/assets/js/29.f452a5af.js"><link rel="prefetch" href="/assets/js/3.b7576c58.js"><link rel="prefetch" href="/assets/js/30.4d7c359f.js"><link rel="prefetch" href="/assets/js/31.6cf93bd9.js"><link rel="prefetch" href="/assets/js/32.b3e0e356.js"><link rel="prefetch" href="/assets/js/33.731b7cbd.js"><link rel="prefetch" href="/assets/js/34.eb522b7e.js"><link rel="prefetch" href="/assets/js/35.7e9a32ef.js"><link rel="prefetch" href="/assets/js/36.7d0ff7fd.js"><link rel="prefetch" href="/assets/js/37.f6bb08ad.js"><link rel="prefetch" href="/assets/js/38.cdb5bb8c.js"><link rel="prefetch" href="/assets/js/39.f16d59e2.js"><link rel="prefetch" href="/assets/js/4.30bc6949.js"><link rel="prefetch" href="/assets/js/40.c3b52b21.js"><link rel="prefetch" href="/assets/js/41.3cf2209b.js"><link rel="prefetch" href="/assets/js/42.acafff1c.js"><link rel="prefetch" href="/assets/js/43.33fc0f17.js"><link rel="prefetch" href="/assets/js/44.4a24ebd3.js"><link rel="prefetch" href="/assets/js/45.47b9a80c.js"><link rel="prefetch" href="/assets/js/46.a20cee2e.js"><link rel="prefetch" href="/assets/js/47.ef3e96e9.js"><link rel="prefetch" href="/assets/js/48.2923f43d.js"><link rel="prefetch" href="/assets/js/49.30e0fe44.js"><link rel="prefetch" href="/assets/js/5.7c7749a8.js"><link rel="prefetch" href="/assets/js/50.2f619fa8.js"><link rel="prefetch" href="/assets/js/51.85cd9572.js"><link rel="prefetch" href="/assets/js/52.37869db5.js"><link rel="prefetch" href="/assets/js/53.c0127118.js"><link rel="prefetch" href="/assets/js/54.75416c42.js"><link rel="prefetch" href="/assets/js/55.3a777cbe.js"><link rel="prefetch" href="/assets/js/56.f6dab9be.js"><link rel="prefetch" href="/assets/js/57.63169b90.js"><link rel="prefetch" href="/assets/js/58.96fbacda.js"><link rel="prefetch" href="/assets/js/59.10f7f026.js"><link rel="prefetch" href="/assets/js/6.10d1cb7c.js"><link rel="prefetch" href="/assets/js/60.293b9f06.js"><link rel="prefetch" href="/assets/js/61.dc639372.js"><link rel="prefetch" href="/assets/js/62.1d8a67bb.js"><link rel="prefetch" href="/assets/js/63.8710c4e1.js"><link rel="prefetch" href="/assets/js/64.2730d625.js"><link rel="prefetch" href="/assets/js/65.6d547ea3.js"><link rel="prefetch" href="/assets/js/66.3f14281d.js"><link rel="prefetch" href="/assets/js/67.a224fdad.js"><link rel="prefetch" href="/assets/js/68.08d33173.js"><link rel="prefetch" href="/assets/js/69.c372c0a4.js"><link rel="prefetch" href="/assets/js/7.7aaacf14.js"><link rel="prefetch" href="/assets/js/70.ad6c1a77.js"><link rel="prefetch" href="/assets/js/71.7d6cd811.js"><link rel="prefetch" href="/assets/js/72.7f03d2ea.js"><link rel="prefetch" href="/assets/js/73.b5813982.js"><link rel="prefetch" href="/assets/js/74.81032885.js"><link rel="prefetch" href="/assets/js/75.9e69c8bb.js"><link rel="prefetch" href="/assets/js/76.404bebc2.js"><link rel="prefetch" href="/assets/js/77.88a71943.js"><link rel="prefetch" href="/assets/js/78.35991ca7.js"><link rel="prefetch" href="/assets/js/79.42544d6c.js"><link rel="prefetch" href="/assets/js/8.369c074c.js"><link rel="prefetch" href="/assets/js/80.3ea8d15e.js"><link rel="prefetch" href="/assets/js/81.ffa2550d.js"><link rel="prefetch" href="/assets/js/82.92c95751.js"><link rel="prefetch" href="/assets/js/83.db1129ed.js"><link rel="prefetch" href="/assets/js/84.0d4ed3df.js"><link rel="prefetch" href="/assets/js/85.a82eed90.js"><link rel="prefetch" href="/assets/js/86.dc7872e9.js"><link rel="prefetch" href="/assets/js/87.eadf1786.js"><link rel="prefetch" href="/assets/js/88.4a476129.js"><link rel="prefetch" href="/assets/js/89.719bfd17.js"><link rel="prefetch" href="/assets/js/9.1bc77ba7.js"><link rel="prefetch" href="/assets/js/90.4fd24039.js"><link rel="prefetch" href="/assets/js/91.1002e8e1.js"><link rel="prefetch" href="/assets/js/92.2c249787.js"><link rel="prefetch" href="/assets/js/93.8d310eb4.js"><link rel="prefetch" href="/assets/js/94.1e299b90.js"><link rel="prefetch" href="/assets/js/95.61e63fb3.js"><link rel="prefetch" href="/assets/js/96.f1c359c1.js"><link rel="prefetch" href="/assets/js/97.b85fc8ad.js"><link rel="prefetch" href="/assets/js/98.4223ffd1.js"><link rel="prefetch" href="/assets/js/99.63a5a161.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c743a759.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">一起学前端</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/interview/" class="nav-link">
+  面试题
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link router-link-active">
+  vue
+</a></div><div class="nav-item"><a href="/react/" class="nav-link">
+  react
+</a></div><div class="nav-item"><a href="/node.js/" class="nav-link">
+  node.js
+</a></div><div class="nav-item"><a href="https://juejin.cn/user/2137106337773645/posts" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金主页
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/interview/" class="nav-link">
+  面试题
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link router-link-active">
+  vue
+</a></div><div class="nav-item"><a href="/react/" class="nav-link">
+  react
+</a></div><div class="nav-item"><a href="/node.js/" class="nav-link">
+  node.js
+</a></div><div class="nav-item"><a href="https://juejin.cn/user/2137106337773645/posts" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金主页
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Vue2</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue/vue2/Vue 3 和 Vue 2 的差别.html" class="sidebar-link">Vue 3 和 Vue 2 的差别</a></li><li><a href="/vue/vue2/前端权限管理.html" class="sidebar-link">前端权限管理</a></li><li><a href="/vue/vue2/Vue.js 运行机制（概览）.html" class="sidebar-link">Vue.js运行机制（概览）</a></li><li><a href="/vue/vue2/Vue.js 运行机制（响应式系统的基本原理）.html" class="sidebar-link">Vue.js 运行机制（响应式系统的基本原理）</a></li><li><a href="/vue/vue2/Vue.js 运行机制（响应式系统的依赖收集）.html" class="sidebar-link">Vue.js 运行机制（响应式系统的依赖收集）</a></li><li><a href="/vue/vue2/Vue.js 运行机制（虚拟DOM的VNode节点）.html" class="sidebar-link">Vue.js 运行机制（虚拟DOM的VNode节点）</a></li><li><a href="/vue/vue2/Vue.js 运行机制（template模板是如何进行编译的）.html" class="sidebar-link">Vue.js js 运行机制（template模板是如何进行编译的）</a></li><li><a href="/vue/vue2/Vue.js 运行机制（异步更新策略及nextTick原理）.html" class="sidebar-link">Vue.js 运行机制（异步更新策略及nextTick原理）</a></li><li><a href="/vue/vue2/Vue.js 运行机制（diff算法与patch机制）.html" class="sidebar-link">Vue.js 运行机制（diff算法与patch机制）</a></li><li><a href="/vue/vue2/Vue.js 运行机制（Vuex状态管理的工作原理）.html" class="active sidebar-link">Vue.js 运行机制（Vuex状态管理的工作原理）</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vue/vue2/Vue.js 运行机制（Vuex状态管理的工作原理）.html#vuex-状态管理的工作原理" class="sidebar-link">Vuex 状态管理的工作原理</a></li><li class="sidebar-sub-header"><a href="/vue/vue2/Vue.js 运行机制（Vuex状态管理的工作原理）.html#为什么要使用-vuex" class="sidebar-link">为什么要使用 Vuex</a></li><li class="sidebar-sub-header"><a href="/vue/vue2/Vue.js 运行机制（Vuex状态管理的工作原理）.html#安装" class="sidebar-link">安装</a></li><li class="sidebar-sub-header"><a href="/vue/vue2/Vue.js 运行机制（Vuex状态管理的工作原理）.html#store" class="sidebar-link">Store</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vue/vue2/Vue.js 运行机制（Vuex状态管理的工作原理）.html#数据的响应式化" class="sidebar-link">数据的响应式化</a></li><li class="sidebar-sub-header"><a href="/vue/vue2/Vue.js 运行机制（Vuex状态管理的工作原理）.html#commit" class="sidebar-link">commit</a></li><li class="sidebar-sub-header"><a href="/vue/vue2/Vue.js 运行机制（Vuex状态管理的工作原理）.html#dispatch" class="sidebar-link">dispatch</a></li></ul></li><li class="sidebar-sub-header"><a href="/vue/vue2/Vue.js 运行机制（Vuex状态管理的工作原理）.html#最后" class="sidebar-link">最后</a></li></ul></li><li><a href="/vue/vue2/Vue.js 运行机制（总结&amp;常见问题解答）.html" class="sidebar-link">Vue.js 运行机制（总结&amp;常见问题解答）</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue3</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="vuex-状态管理的工作原理"><a href="#vuex-状态管理的工作原理" class="header-anchor">#</a> Vuex 状态管理的工作原理</h2> <h2 id="为什么要使用-vuex"><a href="#为什么要使用-vuex" class="header-anchor">#</a> 为什么要使用 Vuex</h2> <p>当我们使用 Vue.js 来开发一个单页应用时，经常会遇到一些组件间共享的数据或状态，或是需要通过 props 深层传递的一些数据。在应用规模较小的时候，我们会使用 props、事件等常用的父子组件的组件间通信方法，或者是通过事件总线来进行任意两个组件的通信。但是当应用逐渐复杂后，问题就开始出现了，这样的通信方式会导致数据流异常地混乱。
+<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/2/9/1617a011064cc43e~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" alt=""></p> <p>这个时候，我们就需要用到我们的状态管理工具 Vuex 了。Vuex 是一个专门为 Vue.js 框架设计的、专门用来对于 Vue.js 应用进行状态管理的库。它借鉴了 Flux、redux 的基本思想，将状态抽离到全局，形成一个 Store。因为 Vuex 内部采用了 new Vue 来将 Store 内的数据进行「响应式化」，所以 Vuex 是一款利用 Vue 内部机制的库，与 Vue 高度契合，与 Vue 搭配使用显得更加简单高效，但缺点是不能与其他的框架（如 react）配合使用。</p> <p>本节将简单介绍 Vuex 最核心的内部机制，起个抛砖引玉的作用，想了解更多细节可以参考笔者 <a href="https://github.com/answershuto" target="_blank" rel="noopener noreferrer">Github<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 上的另一篇文章 <a href="https://github.com/answershuto/learnVue/blob/master/docs/Vuex%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.MarkDown" target="_blank" rel="noopener noreferrer">《Vuex 源码解析》<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>或者直接阅读 Vuex 源码。</p> <h2 id="安装"><a href="#安装" class="header-anchor">#</a> 安装</h2> <p>Vue.js 提供了一个 Vue.use 的方法来安装插件，内部会调用插件提供的 install 方法。</p> <div class="language- extra-class"><pre class="language-text"><code>Vue.use(Vuex);
+</code></pre></div><p>所以我们的插件需要提供一个 install 方法来安装。</p> <div class="language- extra-class"><pre class="language-text"><code>let Vue;
+
+export default install (_Vue) {
+    Vue.mixin({ beforeCreate: vuexInit });
+    Vue = _Vue;
+}
+</code></pre></div><p>我们采用 Vue.mixin 方法将 vuexInit 方法混淆进 beforeCreate 钩子中，并用 Vue 保存 Vue 对象。那么 vuexInit 究竟实现了什么呢？</p> <p>我们知道，在使用 Vuex 的时候，我们需要将 store 传入到 Vue 实例中去。</p> <div class="language- extra-class"><pre class="language-text"><code>/*将store放入Vue创建时的option中*/
+new Vue({
+    el: '#app',
+    store
+});
+</code></pre></div><p>但是我们却在每一个 vm 中都可以访问该 store，这个就需要靠 vuexInit 了。</p> <div class="language- extra-class"><pre class="language-text"><code>function vuexInit () {
+    const options = this.$options;
+    if (options.store) {
+        this.$store = options.store;
+    } else {
+        this.$store = options.parent.$store;
+    }
+}
+</code></pre></div><p>因为之前已经用 Vue.mixin 方法将 vuexInit 方法混淆进 beforeCreate 钩子中，所以每一个 vm 实例都会调用 vuexInit 方法。</p> <p>如果是根节点（$options中存在 store 说明是根节点），则直接将 options.store 赋值给 this.$store。否则则说明不是根节点，从父节点的 $store 中获取。</p> <p>通过这步的操作，我们已经可以在任意一个 vm 中通过 this.$store 来访问 Store 的实例啦～</p> <h2 id="store"><a href="#store" class="header-anchor">#</a> Store</h2> <h3 id="数据的响应式化"><a href="#数据的响应式化" class="header-anchor">#</a> 数据的响应式化</h3> <p>首先我们需要在 Store 的构造函数中对 state 进行「响应式化」。</p> <div class="language- extra-class"><pre class="language-text"><code>constructor () {
+    this._vm = new Vue({
+        data: {
+            ?state: this.state
+        }
+    })
+}
+</code></pre></div><p>熟悉「响应式」的同学肯定知道，这个步骤以后，state 会将需要的依赖收集在 Dep 中，在被修改时更新对应视图。我们来看一个小例子。</p> <div class="language- extra-class"><pre class="language-text"><code>let globalData = {
+    d: 'hello world'
+};
+new Vue({
+    data () {
+        return {
+            ?state: {
+                globalData
+            }
+        }
+    }
+});
+
+/* modify */
+setTimeout(() =&gt; {
+    globalData.d = 'hi~';
+}, 1000);
+
+Vue.prototype.globalData = globalData;
+</code></pre></div><p>任意模板中</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>{{globalData.d}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>上述代码在全局有一个 globalData，它被传入一个 Vue 对象的 data 中，之后在任意 Vue 模板中对该变量进行展示，因为此时 globalData 已经在 Vue 的 prototype 上了所以直接通过 this.prototype 访问，也就是在模板中的 <code>globalData.d</code>。此时，setTimeout 在 1s 之后将 <code>globalData.d</code> 进行修改，我们发现模板中的 <code>globalData.d</code> 发生了变化。其实上述部分就是 Vuex 依赖 Vue 核心实现数据的“响应式化”。</p> <p>讲完了 Vuex 最核心的通过 Vue 进行数据的「响应式化」，接下来我们再来介绍两个 Store 的 API。</p> <h3 id="commit"><a href="#commit" class="header-anchor">#</a> commit</h3> <p>首先是 commit 方法，我们知道 commit 方法是用来触发 mutation 的。</p> <div class="language- extra-class"><pre class="language-text"><code>commit (type, payload, _options) {
+    const entry = this._mutations[type];
+    entry.forEach(function commitIterator (handler) {
+        handler(payload);
+    });
+}
+</code></pre></div><p>从 _mutations 中取出对应的 mutation，循环执行其中的每一个 mutation。</p> <h3 id="dispatch"><a href="#dispatch" class="header-anchor">#</a> dispatch</h3> <p>dispatch 同样道理，用于触发 action，可以包含异步状态。</p> <div class="language- extra-class"><pre class="language-text"><code>dispatch (type, payload) {
+    const entry = this._actions[type];
+
+    return entry.length &gt; 1
+    ? Promise.all(entry.map(handler =&gt; handler(payload)))
+    : entry[0](payload);
+}
+</code></pre></div><p>同样的，取出 _actions 中的所有对应 action，将其执行，如果有多个则用 Promise.all 进行包装。</p> <h2 id="最后"><a href="#最后" class="header-anchor">#</a> 最后</h2> <p>理解 Vuex 的核心在于理解其如何与 Vue 本身结合，如何利用 Vue 的响应式机制来实现核心 Store 的「响应式化」。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vue/vue2/Vue.js 运行机制（diff算法与patch机制）.html" class="prev">
+        Vue.js 运行机制（diff算法与patch机制）
+      </a></span> <span class="next"><a href="/vue/vue2/Vue.js 运行机制（总结&amp;常见问题解答）.html">
+        Vue.js 运行机制（总结&amp;常见问题解答）
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.3aeb1e98.js" defer></script><script src="/assets/js/2.83af3cc0.js" defer></script><script src="/assets/js/128.954f6993.js" defer></script>
+  </body>
+</html>
